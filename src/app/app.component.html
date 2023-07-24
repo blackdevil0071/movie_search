@@ -1,0 +1,39 @@
+<!-- app.component.html -->
+<nav class="nav">
+  <div class="logo-container">
+    <img
+      src="https://png.pngtree.com/png-vector/20190816/ourlarge/pngtree-film-logo-design-template-vector-isolated-illustration-png-image_1693431.jpg"
+      alt="Company Logo"
+      width="100px"
+      height="100px"
+    />
+    <h1>Movie Search App</h1>
+  </div>
+  <div class="container">
+    <input
+      matInput
+      type="text"
+      [(ngModel)]="searchQuery"
+      (keyup)="searchMovies()"
+      placeholder="Search for movies..."
+    />
+
+    <div *ngIf="selectedMovie">
+      <h2>{{ selectedMovie.title }}</h2>
+      <p><span>Release Date: </span> {{ selectedMovie.release_date }}</p>
+      <p><span>Overview: </span>{{ selectedMovie.overview }}</p>
+      <p><span>Rating: </span>{{ selectedMovie.vote_average }}</p>
+    </div>
+
+
+    <div *ngIf="!selectedMovie" class="movie-list">
+      <div
+        *ngFor="let movie of movies"
+        class="movie-card"
+        (click)="showMovieDetails(movie)"
+      >
+        <h2>{{ movie.title }}</h2>
+      </div>
+    </div>
+  </div>
+</nav>
