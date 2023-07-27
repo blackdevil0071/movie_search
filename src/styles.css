@@ -26,6 +26,7 @@ body,html{
   font-size: 20px;
   margin-bottom: 10px;
   text-align: center;
+  cursor: pointer;
 }
 
 /* Style for movie release date, overview, and rating */
